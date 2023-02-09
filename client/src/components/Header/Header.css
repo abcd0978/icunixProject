@@ -1,0 +1,22 @@
+#header{
+    min-width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px; /* ?? */
+}
+
+#title{
+    justify-content: flex-start;
+    padding-left: 30px;
+}
+
+#auth_btns{
+    justify-content: flex-end;
+    padding-right: 30px;
+}
+
+
+#auth_btns button{
+    margin: 10px;
+}
