@@ -3,25 +3,14 @@ import Circle from './Circle';
 import { useState } from 'react';
 import { useEffect } from 'react';
 export interface ITreeContainerProps {
-  func?():void;
 }
 
-interface node{
-  parent?:node;
-  child?:node;
-  data:string;
-  x:number;
-  y:number;
-  left?:node;
-  right?:node;
+function ParseNumAndStr(data:any){
+  if(isNaN(data)){
+    return data.length;
+  }
+  return Number(data);
 }
-
-function appendAndReturnArray(arr:any[],element:any){
-  arr.push(element)
-  return arr
-}
-
-
 
 class Node{
   data: string;
@@ -30,6 +19,7 @@ class Node{
   left:Node;
   right:Node;
   parent:Node;
+  sibling:Node;
   constructor(data) {
     this.data = data;
     this.left = null;
@@ -47,13 +37,12 @@ class binaryTree{
   }
 
   insert(node:Node){
-    
     if(this.head == null){
       this.head = node;
-      this.head.x = 100;
+      this.head.x = 200;
       this.head.y = 20;
-      console.log('첫 생성')
     } else {
+      
       let temp:Node = this.head;
       while (temp) {
         if (temp.data === node.data) {
@@ -61,22 +50,22 @@ class binaryTree{
           break;
         }
 
-        if(temp.data > node.data){
+        if(ParseNumAndStr(temp.data) > ParseNumAndStr(node.data)){
           if (temp.left == null) {
-            node.x = temp.x - 20
-            node.y = temp.y + 20
             node.parent = temp;
             temp.left = node;
+            node.x = temp.x - 20;
+            node.y = temp.y + 30;
             break;
           } else {
             temp = temp.left;
           }
-        }else if(temp.data < node.data){
+        }else if(ParseNumAndStr(temp.data) < ParseNumAndStr(node.data)){
           if (temp.right == null) {
-            node.x = temp.x + 20
-            node.y = temp.y + 20
             node.parent = temp;
             temp.right = node;
+            node.x = temp.x + 20;
+            node.y = temp.y + 30;
             break;
           } else {
             temp = temp.right;
@@ -91,7 +80,9 @@ class binaryTree{
     
   }
 
-  ToArray() {
+
+
+  ToArray(){
     let stack = [];
     this.nodeArray = [];
 
@@ -110,27 +101,20 @@ class binaryTree{
         stack.push(node.right);
       }
     }
+    return this
   }
 
   getNodeArray(){
     return this.nodeArray;
   }
-  
-  findPos(arr:any[], element:any){
-    //넣을 값 element
-    //let firstId = 1;
-    if(arr.length === 0){
-      element.x = 100;
-      element.y = 20;
-      return 
+  getLevel(node:Node):number{
+    let result = 0;
+    let temp:Node = node;
+    while(temp){
+      temp = temp.parent;
+      result++;
     }
-    
-    for(let node of arr){
-      
-      
-      
-  
-    }
+    return result-1;
   }
 }
 
@@ -146,10 +130,8 @@ export default function TreeContainer (props: ITreeContainerProps) {
 
 
   const addNode = () => {
-    setBnt(bnt.insert(new Node(input)))
-    bnt.ToArray();
+    setBnt(bnt.insert(new Node(input)).ToArray())
     setOneNode(bnt.getNodeArray())
-    console.log(bnt.getNodeArray())
   }
   useEffect(()=>{
     setBnt(new binaryTree());
