@@ -7,9 +7,9 @@ export interface ICircleSvgProps {
 }
 function filterDigits(data){
     if(Math.log10(data) > 5){
-        return 5
+        return 6
     }else{
-        return 7
+        return 9
     }
 }
 /**
