@@ -1,6 +1,6 @@
 import * as React from 'react';
 import WTHTerminal from '../Terminal/WTHTerminal';
-import Icubutton from '../../Icunixbtn/Icunixbtn';
+import Icubutton from '../Icunixbtn/Icunixbtn';
 
 export interface IRightSectionProps {
 }
