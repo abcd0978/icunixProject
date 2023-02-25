@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './CircleSvg.css';
 
 export interface ICircleSvgProps {
     data:string;
