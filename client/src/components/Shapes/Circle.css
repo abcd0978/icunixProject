@@ -1,0 +1,12 @@
+#Circle{
+    stroke-dasharray: 63;
+    stroke-dashoffset: 63;
+    animation: line 0.5s forwards;
+    transform:rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke-linecap: round;
+}
+@keyframes line{
+    from{stroke-dashoffset: 63;}
+    to{stroke-dashoffset: 0;}
+}
