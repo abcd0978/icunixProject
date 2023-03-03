@@ -19,9 +19,9 @@ function filterDigits(data){
 export default function CircleSvg (props: ICircleSvgProps) {
   return (
         <g id="Circle">
-            <circle 
+            <circle
                 stroke="#010101"
-                fill="url(#toning)"
+                fill="white"
                 cx={props.x}
                 cy={props.y}
                 r="10">
