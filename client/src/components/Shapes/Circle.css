@@ -1,0 +1,20 @@
+#Circle{
+    stroke-dasharray: 63;
+    stroke-dashoffset: 63;  /*이것도 반지름을 받아 테두리 길이를 구해 넣도록 수정해야함*/
+    animation: line 2s forwards;
+    transition: all ease 3s 0s;
+    /*transform:rotate(-90deg);*/
+    /*transform-origin: 50% 50%;*/
+    transform-origin: 31.25% 31.25%;
+    stroke-linecap: round;
+    color: red;
+    fill: red;
+}
+
+#Circle:hover{
+    transform: scale(1.2);
+}
+@keyframes line{
+    from{stroke-dashoffset: 63;}
+    to{stroke-dashoffset: 0;}
+}
