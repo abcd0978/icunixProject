@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { cNull } from '../util/cNull';
-
+import './CurvedLine.css';
 export interface ICurvedLineSvgProps {
-    PathTag?:React.SVGProps<SVGElement>;
-    AnimateTag:React.SVGProps<SVGElement>;
+    PathTag?:string;
+    distance:number;
 }
 /**
  * @param {number} r when Line is used for connecting Circles of same radius, 
@@ -22,13 +22,12 @@ export interface ICurvedLineSvgProps {
 /**
  * @param {number} r when Line is used for connecting Circles of same radius, 
  */ 
-export default function VerticalCurvedLineSvg ({PathTag,AnimateTag}: ICurvedLineSvgProps) {
+export default function VerticalCurvedLineSvg ({PathTag,distance}: ICurvedLineSvgProps) {
 
     return (
         <g id="CurvedLine">
             <>
-                {PathTag}
-                {AnimateTag}
+                <path d={PathTag} strokeDasharray={Math.ceil(distance)+1} strokeDashoffset={Math.ceil(distance)+1}/>
             </>
         </g>
     );
