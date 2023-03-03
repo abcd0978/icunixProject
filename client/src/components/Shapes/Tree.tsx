@@ -13,13 +13,14 @@ class Tree<T>{
 }
 
 // 완전이진트리 노드
+/* 
 class CompBiTree<T>{
     private root: BT_Node<T>;
     private size: number;
     private height: number;
 
     constructor() {
-        this.root = new BT_Node<T>();
+        //this.root = new BT_Node<T>();
         this.size = 0;
         this.height = 0;
     }
@@ -90,4 +91,4 @@ class CompBiTree<T>{
     }
 }
 
-export type { BT_Node, CBT };
+export type { BT_Node, CBT };*/

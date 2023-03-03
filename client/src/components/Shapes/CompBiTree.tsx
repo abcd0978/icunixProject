@@ -3,6 +3,7 @@ import type { BT_Node } from "./Node"
 
 
 // 완전이진트리 노드
+/* 
 class CompBiTree<T>{
     private root: BT_Node<T>;
     private size: number;
@@ -80,4 +81,4 @@ class CompBiTree<T>{
     }
 }
 
-export type { BT_Node, CBT };
+export type { BT_Node, CBT };*/
